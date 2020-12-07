@@ -1,4 +1,4 @@
-FROM node:12-slim
+FROM timbru31/ruby-node:2.5-slim
 
 
 LABEL version="1.0.0"
@@ -11,5 +11,7 @@ LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable
 LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
-RUN npm i -g serverless@2.1.0
+RUN npm i -g serverless@2.1.0 serverless-rack
+RUN gem install bundler
+
 ENTRYPOINT ["serverless"]
